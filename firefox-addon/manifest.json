@@ -1,0 +1,38 @@
+﻿{
+  "manifest_version": 2,
+  "name": "YouTube Stream Deck Bridge",
+  "version": "1.0.0",
+  "description": "Bridges Stream Deck plugin with YouTube tab controls",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-streamdeck-bridge@local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    }
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_title": "YouTube Stream Deck Bridge",
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  }
+}

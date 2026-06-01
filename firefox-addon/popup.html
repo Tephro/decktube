@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: monospace;
+      width: 220px;
+      padding: 12px;
+      background: #111;
+      color: #eee;
+      margin: 0;
+    }
+    h2 { font-size: 13px; color: #f00; margin: 0 0 8px; letter-spacing: 1px; }
+    .status { font-size: 11px; margin-bottom: 8px; color: #aaa; }
+    .status span { color: #0f0; }
+    .status span.off { color: #f55; }
+    .title { font-size: 11px; color: #ddd; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .info { font-size: 10px; color: #888; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h2>▶ YT STREAM DECK</h2>
+  <div class="status">Bridge: <span id="bridgeStatus" class="off">Disconnected</span></div>
+  <div class="title" id="videoTitle">No video detected</div>
+  <div class="info" id="videoInfo">—</div>
+  <script src="popup.js"></script>
+</body>
+</html>
