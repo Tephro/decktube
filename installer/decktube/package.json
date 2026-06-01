@@ -1,0 +1,46 @@
+{
+  "name": "decktube-installer",
+  "version": "1.0.0",
+  "description": "Installer for DeckTube - YouTube Stream Deck Controller",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:dir": "electron-builder --win --x64 --dir"
+  },
+  "build": {
+    "appId": "com.decktube.installer",
+    "productName": "DeckTube Installer",
+    "directories": {
+      "output": "dist"
+    },
+    "extraResources": [
+      {
+        "from": "../streamdeck-plugin/com.youtube.controller.sdPlugin",
+        "to": "plugin",
+        "filter": [
+          "**/*",
+          "!node_modules/**"
+        ]
+      },
+      {
+        "from": "../firefox-extension",
+        "to": "extension"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": true,
+      "artifactName": "DeckTube-Setup-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.0.0"
+  }
+}
